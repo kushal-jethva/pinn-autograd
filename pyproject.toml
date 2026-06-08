@@ -1,0 +1,39 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pinn-autograd"
+version = "1.0.1"
+description = "A lightweight numpy-only PINN framework with a custom reverse-mode autograd engine built from scratch."
+readme = {file = "README.md", content-type = "text/markdown"}
+license = { text = "MIT" }
+authors = [
+    { name = "Kushal Jethva", email = "kushaljethva23@gmail.com" }
+]
+requires-python = ">=3.8"
+dependencies = [
+    "numpy>=1.20.0"
+]
+keywords = ["pinn", "autograd", "neural-network", "physics-informed-neural-network", "physics", "machine-learning", "computational-physics"]
+classifiers = [
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: Scientific/Engineering :: Mathematics",
+    "Intended Audience :: Science/Research",
+    "Intended Audience :: Education",
+    "Development Status :: 4 - Beta",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+Homepage = "https://github.com/kushaljethva23/PINN"
+Repository = "https://github.com/kushaljethva23/PINN.git"
+"Bug Tracker" = "https://github.com/kushaljethva23/PINN/issues"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["PINN*"]
+[tool.pytest.ini_options]
+pythonpath = ["src"]
