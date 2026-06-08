@@ -166,9 +166,9 @@ xt_coll = np.hstack([x_mesh.flatten().reshape(-1, 1), t_mesh.flatten().reshape(-
 xt_coll = Var(xt_coll)
 x, t  = Var(xt_coll).col(0), Var(xt_coll).col(1) 
 
-wave_pinn = pinn([2, 20,20,20, 1], ['softplus','softplus','softplus'])
+wave_pinn = PINN([2, 20,20,20, 1], ['softplus','softplus','softplus'])
 
-wave_pinn.train(wave_eq, xt_bc, u_bc , xt_coll, 
+wave_pinn.train(wave, xt_bc, u_bc , xt_coll, 
                     epochs=1000, lr=0.01, lambda_p=0.9)
 wave_pinn.save('PINN_wave') #saves model in `PINN_wave.npz`
 ```
