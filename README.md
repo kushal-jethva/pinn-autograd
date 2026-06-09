@@ -55,7 +55,7 @@ import numpy as np
 
 ## PINN Algorithm
 
-Physics Informed Neural Network is build on top of Neural Network with two additional things:
+Physics Informed Neural Network is built on top of Neural Network with two additional things:
 
 - Custom Loss function:  $L_{Total} = L_{Data}+\lambda\cdot L_{Physics}$  where $\lambda$= importance of physics loss
 - Collocation Points: Unlabeled data points sampled within the physical domain that enable the PINN to train on the physics loss even when the true target value at those points is completely unknown.
@@ -84,7 +84,7 @@ An out-of-the-box class designed to easily instantiate and optimize physics-info
 
 ## PINN Features
 
-Extensive Features build on top of autograd system
+Extensive Features built on top of autograd system
 - He and Xavier initializers
 - Native ADAM and SGD optimizers
 - Built-in ReLU,tanh and softplus activation functions
@@ -209,7 +209,7 @@ Example:
                               * ├────y───┘    
                             j───┘             					                
     
-    We calculate local gradeints
+    We calculate local gradients
     
     dx/da = 1   dx/db = 1
     dy/dk = j   dy/dj = k
@@ -250,7 +250,7 @@ It has many predefined functions such as :
 
 ### bifunc/ufunc
 
-Var class has two main function that let's you create any differentiable function
+Var class has two main function that lets you create any differentiable function
 - bifunc: defines a binary function using two input, forward and backward pass logic. 
 - ufunc: defines unary function using one input,forward and backward pass logic.
 
@@ -303,7 +303,7 @@ def ufunc(self, forward, backward,**kwargs) -> 'Var':
 				apply forward function on self.data
 				
     backward: function(self,parent) -> Var :
-			    returns (local gradeint of self) * (parent.grad)
+			    returns (local gradient of self) * (parent.grad)
     
     > parent.grad (upstream parent gradient) is required to follow the chain rule during backward pass
     
@@ -340,7 +340,7 @@ x = Var(np.linspace(1,10,20))
 t = Var(np.linspace(1,10,20))
 xt = Var.stack(x,t) # [x,t] matrix
 
-xt_square = xt**2  # [x**2,t**]
+xt_square = xt**2  # [x**2,t**2]
 dxt_square_dx = xt_square.diff(x) # 2*x
 dxt_square_dt = xt_square.diff(t) # 2*t
 
